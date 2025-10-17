@@ -1,0 +1,11 @@
+name: PayToPlay
+version: 1.0
+api-version: 1.20
+main: me.bruneo32.paytoplay.PayToPlay
+author: Bruno Castro Garcia
+description: A plugin to kick players that don't pay
+
+commands:
+  owe:
+    description: Get information about payments
+    usage: /owe <player>

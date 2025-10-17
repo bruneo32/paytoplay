@@ -1,0 +1,6 @@
+PayToPlay:
+  HoursPerCharge: 15
+  AmountPerCharge: 1
+  DebtToKick: 3
+  CurrencyChar: €
+  WorkerTicks: 1200
