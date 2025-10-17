@@ -28,8 +28,6 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: build-artifacts-${{ github.run_number }}-${{ github.sha }}
-          path: |
-            target/*.jar
-            target/**/*.jar
+          name: paytoplay-plugin.jar
+          path: target/*.jar
           retention-days: 7
