@@ -24,8 +24,12 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
-      - name: Upload JAR artifact
-        uses: actions/upload-artifact@v3
+      - name: Collect built artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
         with:
-          name: paytoplay-jar
-          path: target/*.jar
+          name: build-artifacts-${{ github.run_number }}-${{ github.sha }}
+          path: |
+            target/*.jar
+            target/**/*.jar
+          retention-days: 7
