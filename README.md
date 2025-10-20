@@ -1,7 +1,11 @@
 # PayToPlay
-A Minecraft plugin for keeping out players that didn't pay their share of the server costs.
+A simple Minecraft plugin for keeping out players that didn't pay their share of the server costs.
 
-> Disclaimer: This plugin does not handle monetary transactions. The users pay you via third party services, and you register the transaction in the [accounting.csv](#accountingcsv) file.
+> *Disclaimer*: This plugin does not handle monetary transactions. The users pay you via third party services, and you register the transaction in the [accounting.csv](#accountingcsv) file.
+
+# In-game commands
+- `/owe` Check your debt
+- `/owe <user>` Check another player's debt
 
 # Server config
 The first time that the server runs on it have the PayToPlay plugin, it crates two new files.
@@ -27,12 +31,14 @@ bruneo,32.0
 johndoe,15.23
 javasucks,0
 ```
-Table example
-|         |     |
-|---------|-----|
-|bruneo   |32.0 |
-|johndoe  |15.23|
-|javasucks|0    |
+
+## Why is the db CSV instead of a SQLite or something else?
+The reason is simple, for admin flexibility.
+- If someone pays you, and you are on vacation or something:
+  - You can edit the CSV file from your phone (if you have server access).
+- If someone pays you, and the server is offline:
+  - You can edit the CSV with the server offline
+  - With SQLite, the server would need to be active in order to update the database.
 
 # Build
 ## Prerequisites
@@ -82,11 +88,6 @@ was deployed properly:
 ```
 
 Start the Mincraft client on your computer and connect to the local Minecraft server by specifying `localhost` as Server Address.
-
-Open the command line in Minecraft (by pressing `t`) try the new command and see what happens:
-```
-/owe
-````
 
 To install your plugin in another Minecraft server just copy the file `target/paytoplay-plugin-1.0-1.jar` to
 that server's `plugin` folder.
